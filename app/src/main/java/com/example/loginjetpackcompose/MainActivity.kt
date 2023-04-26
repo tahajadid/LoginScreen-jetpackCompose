@@ -5,6 +5,7 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
+import com.example.loginjetpackcompose.ui.composables.LoginPage
 import com.example.loginjetpackcompose.ui.theme.LoginJetpackComposeTheme
 
 class MainActivity : ComponentActivity() {
@@ -12,7 +13,8 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             LoginJetpackComposeTheme {
-                LoginAppliaction()
+                // LoginAppliaction()
+                LoginPage()
             }
         }
     }
