@@ -4,8 +4,11 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material.Icon
+import androidx.compose.material.IconButton
+import androidx.compose.material.OutlinedTextField
 import androidx.compose.material.Text
-import androidx.compose.runtime.Composable
+import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -22,6 +25,18 @@ import com.example.loginjetpackcompose.R
 @Composable
 fun LoginPage() {
     val imageTop = painterResource(id = R.drawable.login_top)
+
+    var emailValue by remember {
+        mutableStateOf("")
+    }
+
+    var value by remember {
+        mutableStateOf("")
+    }
+
+    var passwordValue by remember {
+        mutableStateOf("")
+    }
 
     Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.BottomCenter) {
         Box(
@@ -41,14 +56,38 @@ fun LoginPage() {
                 .background(Color.White)
                 .padding(10.dp)
         ) {
-            Text(text = "Sign In",
-            style = TextStyle(
-                fontWeight = FontWeight.Bold,
-                letterSpacing = TextUnit.Unspecified
+            Text(
+                text = "Sign In",
+                style = TextStyle(
+                    fontWeight = FontWeight.Bold,
+                    letterSpacing = TextUnit.Unspecified
                 ),
                 fontSize = TextUnit.Unspecified
             )
             Spacer(modifier = Modifier.padding(20.dp))
+            Column(horizontalAlignment = Alignment.CenterHorizontally) {
+                OutlinedTextField(
+                    value = emailValue,
+                    onValueChange = { it ->
+                        emailValue = it
+                    },
+                    label = { Text(text = "Email Address") },
+                    placeholder = { Text(text = "Email Address") },
+                    singleLine = true,
+                    modifier = Modifier.fillMaxWidth(0.8f)
+                )
+
+                OutlinedTextField(
+                    value = passwordValue,
+                    onValueChange = { it ->
+                        passwordValue = it
+                    },
+                    label = { Text(text = "Password") },
+                    placeholder = { Text(text = "Password") },
+                    singleLine = true,
+                    modifier = Modifier.fillMaxWidth(0.8f)
+                )
+            }
         }
     }
 }
