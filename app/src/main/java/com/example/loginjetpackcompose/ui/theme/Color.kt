@@ -9,4 +9,4 @@ val Teal200 = Color(0xFF03DAC5)
 
 // Custom Colors
 val myPrimaryColor = Color(0xFF79EA99)
-val mySecondaryColor = Color(0xFFC4FFD4)
+val mySecondaryColor = Color(0xFFCFFFDC)
